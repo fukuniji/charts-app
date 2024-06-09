@@ -55,6 +55,38 @@ const dataSpiderMan = [
   ["-Man", 12],
 ];
 
+const dataDesktopOSMarketShare2023 = [
+  ["OS", "percentage"],
+  ["Windows", 68.28],
+  ["OS X", 18.71],
+  ["Linux", 3.01],
+  ["Chrome OS", 3.43],
+  ["FreeBSD", 0.01],
+  ["Unknown", 6.55],
+  ["Other", 0.01],
+];
+
+const dataDesktopOSMarketShare2024 = [
+  ["OS", "percentage"],
+  ["Windows", 73.01],
+  ["OS X", 15.2],
+  ["Linux", 3.89],
+  ["Chrome OS", 2.26],
+  ["FreeBSD", 0.01],
+  ["Unknown", 5.63],
+  ["Other", 0],
+];
+
+const diffdata = {
+  old: dataDesktopOSMarketShare2023,
+  new: dataDesktopOSMarketShare2024,
+};
+
+const optionsDesktopOSMarketShare = {
+  title: "Desktop Operating System Market Share Worldwide",
+  sliceVisibilityThreshold: 0.02, // 2%
+};
+
 const options = {
   title: "Atmospheric air components percentage",
 };
@@ -109,6 +141,16 @@ function App() {
     <>
       <h1>Pie Charts</h1>
       <div className="cards-container">
+      <div className="card">
+            <Chart
+              chartType="PieChart"
+              diffdata={diffdata}
+              options={optionsDesktopOSMarketShare}
+              width={"100%"}
+              height={"400px"}
+            />
+            <p>2023 vs. 2024</p>
+        </div>
         <div className="card">
           <Chart
             chartType="PieChart"
